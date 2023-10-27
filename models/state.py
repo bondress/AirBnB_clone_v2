@@ -15,11 +15,12 @@ class State(BaseModel, Base):
     name = Column(String(128), nullable=False)
     cities = relationship("City", backref="state")
 
-    @property
-    def cities(self):
-        """getter for list of city instances related to the state"""
-        all_cities = []
-        for c in list(models.storage.all(City).values()):
-            if city.state_id == self.id:
-                all_cities.append(c)
-        return all_cities
+    if getenv("HBNB_TYPE_STORAGE", None) is None:
+        @property
+        def cities(self):
+            """getter for list of city instances related to the state"""
+            all_cities = []
+            for c in list(models.storage.all(City).values()):
+                if c.state_id == self.id:
+                    all_cities.append(c)
+            return all_cities
