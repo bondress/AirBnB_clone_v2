@@ -64,12 +64,10 @@ class Place(BaseModel, Base):
         return all_amens
 
     @amenities.setter
-    def amenities(self, obj):
+    def amenities(self, value):
         ''' method for adding an Amenity.id to the
         attribute amenity_ids. accepts only Amenity
         objects
         '''
-        if obj is not None:
-            if isinstance(obj, Amenity):
-                if obj.id not in self.amenity_ids:
-                    self.amenity_ids.append(obj.id)
+        if type(value) == Amenity:
+            self.amenity_ids.append(value.id)
