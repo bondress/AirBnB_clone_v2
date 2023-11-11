@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-# This Fabric script distributes an archive to a web server.
-import os.path
+# This Fabric script compresses a web static package.
 from fabric.api import env
 from fabric.api import put
 from fabric.api import run
+from os import path
+from os.path import exists
+from datetime import datetime
+import os.path
 
-env.hosts = ["35.153.52.159", "100.25.182.243"]
+env.hosts = ["35.153.52.159", "52.201.228.223"]
 
 
 def do_deploy(archive_path):
-    """Distributes an archive to a web server.
+    """Deploys web files to a web server.
     """
     if os.path.isfile(archive_path) is False:
         return False

@@ -7,7 +7,7 @@ from fabric.api import local
 from fabric.api import put
 from fabric.api import run
 
-env.hosts = ["100.25.196.153", "100.25.182.243"]
+env.hosts = ["35.153.52.159", "52.201.228.223"]
 
 
 def do_pack():
@@ -63,7 +63,7 @@ def do_deploy(archive_path):
 
 
 def deploy():
-    """Creates and distributes an archive to a web server."""
+    """Create and distribute an archive to a web server."""
     file = do_pack()
     if file is None:
         return False
