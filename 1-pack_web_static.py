@@ -9,7 +9,7 @@ def do_pack():
     """
     Create a tar gzipped archive of the directory web_static.
     """
-    curr_dt= datetime.now()
+    curr_dt = datetime.now()
     archive = 'web_static_' + curr_dt.strftime("%Y%m%d%H%M%S") + '.' + 'tgz'
     local('mkdir -p versions')
     create = local('tar -cvzf versions/{} web_static'.format(archive))
@@ -17,4 +17,3 @@ def do_pack():
         return archive
     else:
         return None
-
