@@ -2,9 +2,9 @@
 """This script starts a flask web application
 """
 
-from flask import Flask
+from flask import Flask,render_template
 
-app = Flask("__name__")
+app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
